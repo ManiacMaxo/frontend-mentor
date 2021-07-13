@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <link rel="stylesheet" href="style.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Frontend Mentor | Tip calculator app</title>
+    </head>
+    <body>
+        <img src="images/logo.svg" alt="logo" class="logo" />
+        <main class="wrapper">
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="bill">Bill</label>
+                    <input
+                        type="number"
+                        name="bill"
+                        class="text-input"
+                        min="0"
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="tip">Select Tip %</label>
+                    <div class="select-wrapper">
+                        <button class="radio-input">5%</button>
+                        <button class="radio-input">10%</button>
+                        <button class="radio-input">15%</button>
+                        <button class="radio-input">25%</button>
+                        <button class="radio-input">50%</button>
+                        <input
+                            type="number"
+                            name="tip"
+                            class="text-input"
+                            placeholder="Custom"
+                        />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="people">Number of People</label>
+                    <input
+                        type="number"
+                        name="people"
+                        class="text-input"
+                        min="1"
+                    />
+                </div>
+            </div>
+            <div class="result">
+                <div class="result-group">
+                    <span class="result-title">Tip Amount</span>
+                    <span class="result-amount">4.27</span>
+                </div>
+                <div class="result-group">
+                    <span class="result-title">Total</span>
+                    <span class="result-amount">32.79</span>
+                </div>
+                <button class="result-reset">Reset</button>
+            </div>
+        </main>
+    </body>
+</html>
