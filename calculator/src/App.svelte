@@ -1,30 +1,59 @@
 <script lang="ts">
-	export let name: string;
+    import { ThemeSwitch, Keypad } from './components'
+
+    $: screen_result = 0
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+    <header class="global-header">
+        <span class="logo">calc</span>
+        <ThemeSwitch />
+    </header>
+    <div class="screen">
+        <span>{screen_result}</span>
+    </div>
+    <div class="keys">
+        <Keypad />
+    </div>
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+<style lang="scss">
+    main {
+        max-width: 500px;
+        width: 100%;
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+    .global-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .screen,
+    .keys {
+        font-size: 32px;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    .screen {
+        background-color: var(--colors-bg-screen);
+        text-align: right;
+    }
+
+    .keys {
+        background-color: var(--colors-bg-secondary);
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 0.7em;
+    }
 </style>
