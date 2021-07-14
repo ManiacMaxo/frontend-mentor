@@ -105,6 +105,11 @@
         width: 100%;
     }
 
+    label {
+        color: var(--colors-accent-400);
+        font-weight: bold;
+    }
+
     .select-wrapper {
         display: grid;
         gap: 0.75rem;
