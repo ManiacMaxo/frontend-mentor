@@ -1,22 +1,19 @@
 <script>
     import Inputs from './components/Inputs.svelte'
     import Calculator from './components/Calculator.svelte'
+    import Logo from './components/Logo.svelte'
 </script>
 
-<img src="logo.svg" alt="logo" class="logo" />
+<header class="header">
+    <Logo />
+</header>
+
 <main class="wrapper">
     <Inputs />
     <Calculator />
 </main>
 
 <style lang="scss">
-    .logo {
-        position: absolute;
-        top: 15%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
     .wrapper {
         position: absolute;
         left: 50%;
@@ -48,8 +45,15 @@
         }
     }
 
+    .header {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     @media screen and (max-width: 450px) {
-        .logo {
+        .header {
             top: 7.5%;
         }
     }

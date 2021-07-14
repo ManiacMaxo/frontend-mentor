@@ -49,7 +49,7 @@
     .title {
         position: relative;
         width: 10ch;
-        height: fit-content;
+        height: max-content;
 
         &::after {
             content: '/ person';
@@ -61,8 +61,9 @@
     }
 
     .amount {
-        font-size: 2.5em;
+        font-size: 3em;
         font-weight: bold;
+        line-height: 90%;
 
         color: var(--colors-primary);
 
