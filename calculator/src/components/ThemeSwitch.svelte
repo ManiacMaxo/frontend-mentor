@@ -73,19 +73,44 @@
         justify-content: space-between;
     }
 
+    @mixin thumb {
+        border-radius: 9999px;
+        border: 0;
+        background-color: var(--colors-key-accent);
+        cursor: pointer;
+    }
+
     .slider {
         width: 70px;
+        height: 1.5rem;
         padding: 2px 5px;
 
         background-color: var(--colors-bg-screen);
-        border-radius: 25px;
+        border-radius: 9999px;
+        -webkit-appearance: none;
 
-        &::-webkit-slider-thumb,
-        &::-moz-range-thumb {
-            border-radius: 999999px;
-            border: 0;
-            background-color: var(--colors-key-accent);
+        &:-ms-track {
+            width: 100%;
             cursor: pointer;
+
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        &::-webkit-slider-thumb {
+            @include thumb;
+            -webkit-appearance: none;
+            height: 1rem;
+            width: 1rem;
+        }
+
+        &::-moz-range-thumb {
+            @include thumb;
+        }
+
+        &::-ms-thumb {
+            @include thumb;
         }
     }
 </style>
