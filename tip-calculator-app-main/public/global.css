@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    border-width: 0;
+    border-style: solid;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    background-color: transparent;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+html,
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --colors-primary: hsl(172, 67%, 45%);
+    --colors-secondary: hsl(0, 0%, 100%);
+    --colors-accent-100: hsl(189, 41%, 97%);
+    --colors-accent-200: hsl(185, 41%, 84%);
+    --colors-accent-300: hsl(184, 14%, 56%);
+    --colors-accent-400: hsl(186, 14%, 43%);
+    --colors-accent-500: hsl(183, 100%, 15%);
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--colors-accent-200);
+    font-size: 14px;
+}
+
+.box {
+    font-size: 22px;
+
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+
+    font-weight: bold;
+    width: 100%;
+
+    outline: none;
+
+    transition: color 0.2s, background-color 0.2s;
+}
