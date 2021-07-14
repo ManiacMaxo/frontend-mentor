@@ -58,12 +58,14 @@
                     <input
                         type="radio"
                         name="tip"
-                        id="tip"
+                        id={tip}
                         value={tip}
                         checked={tip == $tip_percent}
                         on:change={onTipChange}
                     />
-                    <span class="box">{tip + '%'}</span>
+                    <label for={tip} class="box">
+                        {tip + '%'}
+                    </label>
                 </div>
             {/each}
             <input
@@ -211,19 +213,19 @@
 
             cursor: pointer;
 
-            &:checked + span {
+            &:checked + label {
                 background-color: var(--colors-primary);
                 color: var(--colors-accent-500);
             }
 
-            &:hover + span,
-            &:focus + span {
+            &:hover + label,
+            &:focus + label {
                 background-color: var(--colors-accent-200);
                 color: var(--colors-accent-500);
             }
         }
 
-        span {
+        label {
             padding: 0.25rem;
 
             background-color: var(--colors-accent-500);

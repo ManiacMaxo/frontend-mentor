@@ -36,7 +36,7 @@ function serve() {
 export default {
     input: 'src/main.js',
     output: {
-        sourcemap: true,
+        sourcemap: !production,
         format: 'iife',
         name: 'app',
         file: 'public/build/bundle.js'
@@ -47,7 +47,12 @@ export default {
                 // enable run-time checks when not in production
                 dev: !production
             },
-            preprocess: preprocess()
+            preprocess: preprocess({
+                sourceMap: !production,
+                postcss: {
+                    plugins: [require('autoprefixer')()]
+                }
+            })
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
