@@ -4,10 +4,12 @@
     const reset = () => {
         $total = null
         $tip_percent = null
-        $persons = 1
+        $persons = null
     }
 
-    $: tip_per_person = ($total * $tip_percent) / (100 * $persons) || 0
+    $: disabled = $total === null && $tip_percent === null && $persons === null
+
+    $: tip_per_person = ($total * $tip_percent) / (100 * ($persons || 1)) || 0
     $: amount_per_person = $total / ($persons || 1) + tip_per_person || 0
 </script>
 
@@ -20,7 +22,7 @@
         <span class="title">Total</span>
         <span class="amount">{amount_per_person.toFixed(2)}</span>
     </div>
-    <button class="box reset" on:click={reset}>Reset</button>
+    <button class="box reset" on:click={reset} {disabled}>Reset</button>
 </div>
 
 <style lang="scss">
@@ -85,6 +87,11 @@
         &:focus {
             background-color: var(--colors-accent-200);
             color: var(--colors-accent-500);
+        }
+
+        &:disabled {
+            background-color: #13686d;
+            cursor: default;
         }
     }
 

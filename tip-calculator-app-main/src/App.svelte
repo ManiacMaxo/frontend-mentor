@@ -1,12 +1,6 @@
 <script>
-    import { setContext } from 'svelte'
-
     import Inputs from './components/Inputs.svelte'
     import Calculator from './components/Calculator.svelte'
-
-    setContext('total', null)
-    setContext('tip_percent', null)
-    setContext('persons', null)
 </script>
 
 <img src="logo.svg" alt="logo" class="logo" />

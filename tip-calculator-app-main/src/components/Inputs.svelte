@@ -34,7 +34,7 @@
     <label for="bill">
         Bill
         <div
-            class={`input-group ${$total < 0 ? 'error' : ''}`}
+            class="input-group {$total < 0 ? 'error' : ''}"
             data-error="Can't be less than 0"
         >
             <input
@@ -80,7 +80,7 @@
         Number of People
 
         <div
-            class={`input-group ${$persons < 1 ? 'error' : ''}`}
+            class="input-group {$persons && $persons < 1 ? 'error' : ''}"
             data-error="Can't be less than 1"
         >
             <input
