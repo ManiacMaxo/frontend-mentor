@@ -1,19 +1,30 @@
 <script>
     import { total, tip_percent, persons } from '../stores'
 
+    let custom_tip = null
+
+    tip_percent.subscribe((val) => {
+        if (val == null) {
+            custom_tip = null
+        }
+    })
+
     const onChangeTotal = (event) => {
-        console.log('changed total')
         $total = event.target.value || null
     }
 
     const onChangePersons = (event) => {
-        console.log('changed persons')
         $persons = event.target.value || null
     }
 
-    const onTipChange = (event) => {
-        console.log('changed tip')
+    const onCustomTip = (event) => {
         $tip_percent = event.target.value
+        custom_tip = $tip_percent
+    }
+
+    const onTipChange = (event) => {
+        $tip_percent = event.target.value
+        custom_tip = null
     }
 
     const tips = [5, 10, 15, 25, 50]
@@ -59,6 +70,8 @@
                 name="tip"
                 class="box text-input"
                 placeholder="Custom"
+                value={custom_tip ?? ''}
+                on:input={onCustomTip}
             />
         </div>
     </label>
