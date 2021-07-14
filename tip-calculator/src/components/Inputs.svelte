@@ -9,18 +9,9 @@
         }
     })
 
-    const onChangeTotal = (event) => {
-        $total = event.target.value || null
-    }
+    $: custom_tip && changeTip()
 
-    const onChangePersons = (event) => {
-        $persons = event.target.value || null
-    }
-
-    const onCustomTip = (event) => {
-        $tip_percent = event.target.value
-        custom_tip = $tip_percent
-    }
+    const changeTip = () => ($tip_percent = custom_tip)
 
     const onTipChange = (event) => {
         $tip_percent = event.target.value
@@ -43,8 +34,7 @@
                 class="box text-input"
                 min="0"
                 placeholder="0"
-                on:input={onChangeTotal}
-                value={$total || ''}
+                bind:value={$total}
             />
             <img class="input-icon" src="icon-dollar.svg" alt="$" />
         </div>
@@ -54,7 +44,7 @@
 
         <div class="select-wrapper">
             {#each tips as tip}
-                <label for="tip" class="radio-input">
+                <div class="radio-input">
                     <input
                         type="radio"
                         name="tip"
@@ -63,15 +53,14 @@
                         on:change={onTipChange}
                     />
                     <span class="box">{tip + '%'}</span>
-                </label>
+                </div>
             {/each}
             <input
                 type="number"
                 name="tip"
                 class="box text-input"
                 placeholder="Custom"
-                value={custom_tip ?? ''}
-                on:input={onCustomTip}
+                bind:value={custom_tip}
             />
         </div>
     </label>
@@ -88,8 +77,7 @@
                 name="people"
                 class="box text-input"
                 placeholder="0"
-                on:input={onChangePersons}
-                value={$persons || ''}
+                bind:value={$persons}
             />
             <img class="input-icon" src="icon-person.svg" alt="🙋" />
         </div>
