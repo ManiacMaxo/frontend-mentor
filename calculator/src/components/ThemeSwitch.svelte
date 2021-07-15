@@ -24,7 +24,8 @@
         ).matches
 
         const storedTheme =
-            localStorage.getItem('theme') ?? prefersDark ? 'dark' : 'light'
+            localStorage.getItem('theme') ?? (prefersDark ? 'dark' : 'light')
+
         if (themes.includes(storedTheme)) setTheme(storedTheme)
     })
 </script>
