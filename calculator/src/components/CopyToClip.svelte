@@ -31,7 +31,7 @@
 </script>
 
 <div class="hidden">
-    <label for="copy" />
+    <label for="copy">Copy to Clipboard</label>
     <textarea name="copy" id="copy" bind:this={areaDom}>{valueCopy}</textarea>
 </div>
 <button class="clipboard" on:click={copy} aria-label="copy to clipboard">
