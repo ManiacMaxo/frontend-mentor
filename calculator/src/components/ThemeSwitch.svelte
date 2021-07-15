@@ -31,7 +31,7 @@
 </script>
 
 <div class="switch">
-    <span class="label">theme</span>
+    <label for="themes" class="label">theme</label>
 
     <div class="slider-wrapper">
         <div class="labels">
@@ -45,6 +45,7 @@
             class="slider"
             type="range"
             name="themes"
+            id="themes"
             min="0"
             max="2"
             bind:value={themeIndex}

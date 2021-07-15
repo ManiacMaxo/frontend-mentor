@@ -13,7 +13,7 @@
 
 <main>
     <header class="global-header">
-        <span class="logo">calc</span>
+        <h1 class="logo">calc</h1>
         <ThemeSwitch />
     </header>
     <div class="screen">

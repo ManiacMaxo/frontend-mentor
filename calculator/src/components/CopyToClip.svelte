@@ -30,8 +30,11 @@
     }
 </script>
 
-<textarea class="hidden" bind:this={areaDom}>{valueCopy}</textarea>
-<button class="clipboard" on:click={copy}>
+<div class="hidden">
+    <label for="copy" />
+    <textarea name="copy" id="copy" bind:this={areaDom}>{valueCopy}</textarea>
+</div>
+<button class="clipboard" on:click={copy} aria-label="copy to clipboard">
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
