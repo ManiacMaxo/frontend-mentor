@@ -141,3 +141,31 @@ body {
     --colors-text-key: hsl(52, 100%, 62%);
     --colors-text: hsl(52, 100%, 62%);
 }
+
+.button {
+    --shadow-color: var(--colors-key-shadow);
+    --text-color: var(--colors-text-key);
+    --bg-color: var(--colors-key);
+
+    --offset: 5px;
+
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    box-shadow: 0px var(--offset) 0px 0px var(--shadow-color);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+    height: fit-content;
+}
+
+.button:hover,
+.button:focus {
+    outline: 0;
+    filter: brightness(0.8);
+}
+
+.button:active {
+    --offset: 1px;
+    transform: translateY(4px);
+}
