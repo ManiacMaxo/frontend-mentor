@@ -50,7 +50,7 @@ body {
     align-items: center;
 
     background-color: var(--colors-bg-main);
-    color: var(--colors-text-outside);
+    color: var(--colors-text);
 }
 
 :root {
@@ -70,9 +70,9 @@ body {
     --colors-key-mod-shadow: transparent;
 
     /* text */
+    --colors-text-key-mod: white;
     --colors-text-key: black;
     --colors-text: white;
-    --colors-text-outside: white;
 }
 
 .dark {
@@ -92,9 +92,9 @@ body {
     --colors-key-mod-shadow: hsl(224, 28%, 35%);
 
     /* text */
+    --colors-text-key-mod: hsl(0, 0%, 100%);
     --colors-text-key: hsl(221, 14%, 31%);
     --colors-text: hsl(0, 0%, 100%);
-    --colors-text-outside: hsl(0, 0%, 100%);
 }
 
 .light {
@@ -114,9 +114,9 @@ body {
     --colors-key-mod-shadow: hsl(185, 58%, 25%);
 
     /* text */
+    --colors-text-key-mod: hsl(0, 0%, 100%);
     --colors-text-key: hsl(60, 10%, 19%);
-    --colors-text: hsl(0, 0%, 100%);
-    --colors-text-outside: hsl(60, 10%, 19%);
+    --colors-text: hsl(60, 10%, 19%);
 }
 
 .cyberpunk {
@@ -136,8 +136,8 @@ body {
     --colors-key-mod-shadow: hsl(285, 91%, 52%);
 
     /* text */
-    --colors-text-key: hsl(52, 100%, 62%);
     --colors-text-key-secondary: hsl(198, 20%, 13%);
-    --colors-text: hsl(0, 0%, 100%);
-    --colors-text-outside: hsl(52, 100%, 62%);
+    --colors-text-key-mod: hsl(0, 0%, 100%);
+    --colors-text-key: hsl(52, 100%, 62%);
+    --colors-text: hsl(52, 100%, 62%);
 }

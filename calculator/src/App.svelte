@@ -1,7 +1,14 @@
 <script lang="ts">
-    import { ThemeSwitch, Keypad } from './components'
+    import { evaluate } from 'mathjs'
+    import { CopyToClip, Keypad, ThemeSwitch } from './components'
 
-    $: screen_result = 0
+    let query = ''
+
+    const solve = () => {
+        if (!query) return
+
+        query = `${evaluate(query)}`
+    }
 </script>
 
 <main>
@@ -10,17 +17,20 @@
         <ThemeSwitch />
     </header>
     <div class="screen">
-        <span>{screen_result}</span>
+        <div class="wrapper">
+            <span>{query === '' ? 0 : query}</span>
+        </div>
+        <CopyToClip bind:value={query} />
     </div>
     <div class="keys">
-        <Keypad />
+        <Keypad on:enter={solve} bind:value={query} />
     </div>
 </main>
 
 <style lang="scss">
     main {
         max-width: 500px;
-        width: 100%;
+        width: min(100%, 90vw);
 
         display: flex;
         flex-direction: column;
@@ -45,7 +55,27 @@
 
     .screen {
         background-color: var(--colors-bg-screen);
-        text-align: right;
+        height: calc(38px + 2 * 25px);
+        position: relative;
+
+        padding-top: 5px;
+
+        .wrapper {
+            overflow-y: scroll;
+            position: relative;
+
+            height: 100%;
+            width: 100%;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            text-align: right;
+        }
     }
 
     .keys {
@@ -55,5 +85,12 @@
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
         gap: 0.7em;
+    }
+
+    @media screen and (max-width: 500px) {
+        .screen,
+        .keys {
+            font-size: 25px;
+        }
     }
 </style>

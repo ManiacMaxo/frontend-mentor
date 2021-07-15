@@ -19,7 +19,12 @@
     const onChange = () => localStorage.setItem('theme', themes[themeIndex])
 
     onMount(() => {
-        const storedTheme = localStorage.getItem('theme') ?? 'dark'
+        const prefersDark = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches
+
+        const storedTheme =
+            localStorage.getItem('theme') ?? prefersDark ? 'dark' : 'light'
         if (themes.includes(storedTheme)) setTheme(storedTheme)
     })
 </script>
