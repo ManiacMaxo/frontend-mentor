@@ -84,7 +84,10 @@
     .hidden {
         opacity: 0;
         position: absolute;
-        width: 0;
-        height: 0;
+
+        * {
+            width: 0;
+            height: 0;
+        }
     }
 </style>
