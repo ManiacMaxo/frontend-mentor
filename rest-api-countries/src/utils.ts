@@ -47,11 +47,15 @@ export interface ResponseCountry {
 
 export interface Country {
     name: string
-    nativeName: string
     population: number
     region: string
-    subRegion: string
     capital: string
+    flag: string
+}
+
+export interface CountryDetail extends Country {
+    nativeName: string
+    subRegion: string
     topLevelDomain: string
     currencies: string[]
     languages: string[]
@@ -59,12 +63,12 @@ export interface Country {
 }
 
 const API_URL = 'https://restcountries.eu/rest/v2/'
-const API_URL_FIELDS =
-    '?fields=name;nativeName;population;region;subRegion;topLevelDomain;capital;currencies;languages;borders'
+const API_URL_FIELDS = '?fields=name;population;region;capital;flag'
+const API_URL_FIELDS_DETAILS = `${API_URL_FIELDS};nativeName;subRegion;topLevelDomain;currencies;languages;borders`
 
-export const fetchCountry = async (name: string): Promise<Country> => {
+export const fetchCountry = async (name: string): Promise<CountryDetail> => {
     const res = await fetch(
-        API_URL + `name/${name}` + API_URL_FIELDS + '&fullText=true'
+        API_URL + 'name/' + name + API_URL_FIELDS_DETAILS + '&fullText=true'
     )
 
     const jsonRes: ResponseCountry = await res.json()
@@ -76,4 +80,11 @@ export const fetchCountry = async (name: string): Promise<Country> => {
         currencies: data.currencies.map((currency) => currency.name),
         languages: data.languages.map((language) => language.name)
     }
+}
+
+export const fetchCountries = async (): Promise<Country[]> => {
+    const res = await fetch(API_URL + 'all' + API_URL_FIELDS)
+    const jsonRes: ResponseCountry[] = await res.json()
+
+    return jsonRes
 }

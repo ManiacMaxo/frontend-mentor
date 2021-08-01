@@ -1,16 +1,10 @@
 <script script lang="ts">
-    import Header from './components/Header.svelte'
-    import Search from './components/Search.svelte'
-    import Filter from './components/Filter.svelte'
-    import Card from './components/Card.svelte'
+    import { Header, Search, Filter, Card } from './components'
+    import { fetchCountries } from './utils'
 
-    import { fetchCountry } from './utils'
+    // fetchCountry('Bulgaria')
 
-    let countries = []
-
-    fetchCountry('Bulgaria').then((res) => {
-        console.log(res)
-    })
+    let query = fetchCountries()
 </script>
 
 <Header />
@@ -20,9 +14,13 @@
         <Filter />
     </header>
     <div class="countries container">
-        {#each countries as country}
-            <Card data={country} />
-        {/each}
+        {#await query}
+            <p>Loading...</p>
+        {:then countries}
+            {#each countries as country}
+                <Card {country} />
+            {/each}
+        {/await}
     </div>
 </main>
 
@@ -30,5 +28,20 @@
     .container {
         width: min(89%, 1440px);
         margin: 0 auto;
+    }
+
+    main {
+        margin-top: 3rem;
+    }
+
+    .countries {
+        margin-top: 3rem;
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+    }
+
+    @media (min-width: 768px) {
     }
 </style>

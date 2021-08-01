@@ -33,7 +33,7 @@
         <h1 class="title">Where in the world?</h1>
         <button on:click={switchTheme} class="theme-switcher">
             <svelte:component this={icon} />
-            {theme} mode
+            {oppositeTheme} mode
         </button>
     </div>
 </header>
@@ -42,6 +42,7 @@
     .header {
         background-color: var(--colors-el);
         font-size: 16px;
+        box-shadow: var(--shadow);
 
         .container {
             display: flex;

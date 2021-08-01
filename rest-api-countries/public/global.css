@@ -45,19 +45,30 @@ body {
     color: var(--colors-text);
 }
 
+:root {
+    --shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
 .light {
-    --colors-text: hsl(200, 15%, 8%);
-    --colors-bg: hsl(0, 0%, 98%);
-    --colors-el: hsl(0, 0%, 100%);
-    --colors-input: hsl(0, 0%, 52%);
+    --colors-text: #111517;
+    --colors-bg: #fafafa;
+    --colors-el: #ffffff;
+
+    --colors-subtle: #858585;
 }
 
 .dark {
-    --colors-text: hsl(0, 0%, 100%);
-    /* --colors-bg: hsl(209, 23%, 22%); */
-    --colors-bg: hsl(207, 26%, 17%);
-    --colors-el: hsl(209, 23%, 22%);
-    --colors-input: hsl(207, 26%, 17%);
+    --colors-text: #ffffff;
+    --colors-bg: #202d35;
+    --colors-el: #2a3744;
+    --colors-subtle: #fafafa;
+
+    --coo: hsl(209, 23%, 22%);
+    --coo: hsl(207, 26%, 17%);
+    --coo: hsl(200, 15%, 8%);
+    --coo: hsl(0, 0%, 52%);
+    --coo: hsl(0, 0%, 98%);
+    --coo: hsl(0, 0%, 100%);
 }
 
 button {
