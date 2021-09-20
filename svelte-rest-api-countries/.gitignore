@@ -1,0 +1,11 @@
+# build
+/node_modules/
+/public/build/
+
+# mac
+.DS_Store
+
+# env variables
+.env
+.env.local
+.env.development

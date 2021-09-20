@@ -1,4 +1,4 @@
-<script script lang="ts">
+<script lang="ts">
     import { Header, Search, Filter, Card } from './components'
     import { fetchCountries } from './utils'
 
@@ -26,7 +26,7 @@
 
 <style global>
     .container {
-        width: min(89%, 1440px);
+        width: min(90%, 1440px);
         margin: 0 auto;
     }
 
