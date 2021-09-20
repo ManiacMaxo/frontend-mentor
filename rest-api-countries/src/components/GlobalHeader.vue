@@ -29,7 +29,9 @@ onMounted(() => {
 <template>
     <header class="global-header">
         <div class="container">
-            <h1 class="title">Where in the world?</h1>
+            <h1 class="title">
+                <router-link to="/">Where in the world?</router-link>
+            </h1>
             <button @click="switchTheme" class="theme-switcher">
                 <component :is="icon" />
                 {{ theme }} mode

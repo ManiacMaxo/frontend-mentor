@@ -4,6 +4,7 @@ import { GlobalHeader } from './components'
 
 <template>
     <GlobalHeader />
+    <router-view />
 </template>
 
 <style global>

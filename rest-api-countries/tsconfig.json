@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "lib": [
+            "es2015"
+        ],
+        "types": [
+            "vite/client"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "public"
+    ],
+    "include": [
+        "src/"
+    ]
+}
