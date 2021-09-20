@@ -40,20 +40,19 @@ onMounted(() => {
     </header>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .global-header {
     background-color: var(--colors-el);
     box-shadow: var(--shadow);
 
     width: 100%;
+}
+.global-header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    > .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        padding: 1.55em 0;
-    }
+    padding: 1.55em 0;
 }
 
 .title {
@@ -66,9 +65,9 @@ onMounted(() => {
 
     text-transform: capitalize;
     font-weight: 600;
+}
 
-    svg {
-        height: 1.25em;
-    }
+.theme-switcher svg {
+    height: 1.25em;
 }
 </style>
