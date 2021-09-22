@@ -80,7 +80,7 @@ button {
 }
 
 .container {
-    width: min(90%, 1440px);
+    width: min(89%, 1440px);
     margin: 0 auto;
 }
 </style>

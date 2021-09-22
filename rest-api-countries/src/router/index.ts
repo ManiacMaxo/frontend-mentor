@@ -8,9 +8,15 @@ const routes = [
         component: Home
     },
     {
-        path: '/:country',
+        path: '/:country(\\w{2,3})',
         name: 'country',
-        component: () => import('../views/Country.vue')
+        component: () => import('../views/Country.vue'),
+        props: true
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        component: () => import('../views/FourOhFour.vue')
     }
 ]
 

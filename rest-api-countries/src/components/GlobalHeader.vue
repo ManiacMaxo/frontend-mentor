@@ -52,7 +52,7 @@ onMounted(() => {
     justify-content: space-between;
     align-items: center;
 
-    padding: 1.55em 0;
+    padding: 1.75em 0;
 }
 
 .title {
