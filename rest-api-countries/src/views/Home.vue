@@ -1,13 +1,25 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { SearchIcon, ChevronDownIcon } from '@heroicons/vue/solid'
+import { Card } from '../components'
+import { fetchCountries } from '@/utils'
+import { Country } from '../utils/types'
 
 const dropdownVisible = ref(false)
 const toggleDropdown = () => (dropdownVisible.value = !dropdownVisible.value)
 
-const counties = [{ flag: '', name: '' }]
-
 const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+
+const countries = ref<Array<Country>>([])
+const error = ref(null)
+
+onMounted(async () => {
+    try {
+        countries.value = await fetchCountries()
+    } catch (err) {
+        error.value = err
+    }
+})
 </script>
 
 <template>
@@ -30,6 +42,10 @@ const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
                 </ul>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <Card v-for="country in countries" :key="country.name" />
     </div>
 </template>
 
